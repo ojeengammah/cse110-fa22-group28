@@ -36,7 +36,7 @@ describe('Testing basic user flow for Stonks Chore Tracker', () => {
       //lastly checking if the element is actually removed from html document
       let lastCheck = await page.$('chore-card');
       expect(chores).toBe('[]');
-      expect(lastCheck).beBeNull();
+      expect(lastCheck).toBeNull();
     }, 10000);
     
     
@@ -85,7 +85,7 @@ describe('Testing basic user flow for Stonks Chore Tracker', () => {
     */
     it("Test for adding 20 chores into the empty list",async()=>{
       //Clear the localStorage before the test starts.
-      await page.$evaluate(()=>{
+      await page.evaluate(()=>{
         localStorage.clear();
       });
       let addBtn = await page.$('add-chore');
